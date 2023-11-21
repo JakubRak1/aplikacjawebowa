@@ -1,0 +1,35 @@
+:root {
+  --darkest-blue: #020024;
+  --dark-blue: #0d4671;
+  --bright-blue: #92e1e2;
+  --font-brown: #505050;
+  --font-green: #7af07b;
+}
+
+.cookie-banner {
+  background: linear-gradient(
+    90deg,
+    var(--dark-blue) 20%,
+    var(--bright-blue) 50%,
+    var(--dark-blue) 80%
+  );
+  position: absolute;
+  top: 88%;
+  left: 27.5%;
+  width: max(45%);
+  height: fit-content;
+}
+.close {
+  width: fit-content;
+  border: none;
+  mix-blend-mode: multiply;
+}
+.text-cookie {
+  color: black;
+  font-size: 1vw;
+}
+.btn-accept {
+  border: none;
+  width: fit-content;
+  font-size: 1vw;
+}

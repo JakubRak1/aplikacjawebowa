@@ -1,0 +1,38 @@
+version: "3"
+
+services:
+  front-end:
+    container_name: react
+    build: ./front
+    ports:
+      - "127.0.0.1:3000:3000"
+    depends_on:
+      - back-end
+
+  postgres:
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_USER: kuba
+      POSTGRES_PASSWORD: rotmistrz
+      POSTGRES_DB: db
+    ports:
+      - "5432:5432"
+    expose:
+      - "5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      - ./postgresql:/docker-entrypoint-initdb.d
+
+  back-end:
+    build: ./backend
+    restart: always
+    ports:
+      - "2999:2999"
+    depends_on:
+      - postgres
+    environment:
+      DATABASE_URL: postgres://kuba:rotmistrz@postgres:5432/db
+
+volumes:
+  postgres-data:
