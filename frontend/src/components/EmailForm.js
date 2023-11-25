@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import '../static/styles/emailStyle.css';
 import api from "../api/apiConfig";
+import Modal from '../modal/ModalSucces';
+
 
 const EmailForm = () => {
     const [formData, setFormData] = useState({
@@ -8,6 +10,22 @@ const EmailForm = () => {
         email: '',
         message: '',
     });
+    const [modalIsOpen, setModalIsOpen] = useState(false);
+    const [messageIsSuccess, setMessageIsSuccess] = useState(true);
+
+    const openModal = (message) => {
+        setModalIsOpen(true);
+        setMessageIsSuccess(message);
+    }
+
+    const closeModal = () => {
+        setModalIsOpen(false);
+        setFormData({
+            name: '',
+            email: '',
+            message: '',
+        })
+    }
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -19,14 +37,19 @@ const EmailForm = () => {
         const response = await api.post('/send_email', formData)
         if (response.status === 200) {
             console.log('Sended')
+            openModal(true);
         } else {
-            console.log('Fail')
+            console.log('Fail');
+            openModal(false);
         }
         console.log('Form submitted:', formData);
     };
 
     return (
         <div className="email-form-container">
+            <div>
+                <Modal isOpen={modalIsOpen} onClose={closeModal} isSuccess={messageIsSuccess} />
+            </div>
             <form onSubmit={handleSubmit}>
                 <label>
                     Name:

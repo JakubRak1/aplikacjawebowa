@@ -1,0 +1,44 @@
+.carContainer {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.partContainer {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.car {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 7%;
+}
+
+.carRow {
+    width: 200px;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.carRow h1 {
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.carRow img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+.carRow p {
+    margin: 8px 0;
+    font-size: 14px;
+}

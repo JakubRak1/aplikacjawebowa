@@ -33,8 +33,6 @@ services:
       - "2999:2999"
     depends_on:
       - postgres
-    environment:
-      DATABASE_URL: postgres://kuba:rotmistrz@postgres:5432/db
 
 volumes:
   postgres-data:

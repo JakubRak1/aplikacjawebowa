@@ -1,7 +1,8 @@
 import React from "react";
 import './static/styles/mainStyles.css';
 import LogoImage from "./components/LogoImg";
-import EmailForm from "./components/EmailForm"
+import EmailForm from "./components/EmailForm";
+import CarsDisplay from "./components/CarsDisplay";
 
 function App() {
   return (
@@ -11,7 +12,7 @@ function App() {
       </header>
       <main>
         <div className="car-gallery">
-          DUPA
+          <CarsDisplay />
         </div>
         <div>
           <h1>Please leave us some feedback</h1>

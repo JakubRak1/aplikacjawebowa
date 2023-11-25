@@ -1,0 +1,36 @@
+.custom-modal-delete {
+    background-color: #fff;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.custom-modal-delete .close {
+    font-size: 24px;
+    color: #333;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.custom-modal-delete .modal-body {
+    padding: 20px;
+}
+
+.custom-modal-delete .modal-footer {
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.custom-modal-delete .btn-secondary {
+    background-color: #ccc;
+    color: #333;
+}
+
+.custom-modal-delete .btn-danger {
+    background-color: #dc3545;
+    color: #fff;
+}

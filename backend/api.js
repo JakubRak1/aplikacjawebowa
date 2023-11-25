@@ -68,7 +68,17 @@ app.get('/getImage/:imageName', (req, res) => {
   const imageName = req.params.imageName;
   const imagePath = path.join(__dirname, 'files', imageName);
   console.log(imagePath);
+  if (fileExists(imagePath)) {
+    res.sendFile(imagePath);
+  } else {
+    res.sendFile('./files/placeholder.png');
+  }
+});
 
+app.get('/getImage/', (req, res) => {
+  const imageName = 'placeholder.png';
+  const imagePath = path.join(__dirname, 'files', imageName);
+  console.log(imagePath);
   if (fileExists(imagePath)) {
     res.sendFile(imagePath);
   } else {
