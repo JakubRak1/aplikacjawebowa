@@ -44,8 +44,7 @@ const storage = multer.diskStorage({
     cb(null, 'files/');
   },
   filename: (req, file, cb) => {
-    const ext = path.extname(file.originalname);
-    cb(null, Date.now() + ext);
+    cb(null, file.originalname);
   },
 });
 
@@ -55,7 +54,7 @@ app.post('/upload', upload.single('file'), (req, res) => {
   try {
     const uploadedFile = req.file;
     if (!uploadedFile) {
-      return res.status(400).json({ status: 'error', error: 'No file uploaded' });
+      return res.status(400).json({ status: 'error', error: i18n.__('No file uploaded') });
     }
     res.json({ status: 'succes', message: i18n.__('File uploaded successfully'), file: uploadedFile });
   } catch (error) {

@@ -7,7 +7,6 @@ i18n.configure({
     objectNotation: true,
     updateFiles: false,
     syncFiles: false,
-    cookie: 'lang',
 });
 
 module.exports = i18n;

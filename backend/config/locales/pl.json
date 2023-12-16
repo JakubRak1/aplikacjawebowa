@@ -1,6 +1,7 @@
 {
   "Email sent successfully": "Mail zostal wyslany",
-  "Failed to send email": "Ni udalo sie wyslac maila",
+  "Failed to send email": "Nie udalo sie wyslac maila",
   "File uploaded successfully": "Plik zostal wyslany",
-  "Internal Server Error": "Wystapil wewnetrzny blad serwera"
+  "Internal Server Error": "Wystapil wewnetrzny blad serwera",
+  "No file uploaded": "Zaden plik nie zostal zapisany"
 }

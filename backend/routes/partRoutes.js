@@ -23,7 +23,7 @@ const storage = multer.diskStorage({
     filename: (req, file, cb) => {
         const ext = path.extname(file.originalname);
         const fileName = path.basename(file.originalname, ext);
-        cb(null, `${fileName}_${Date.now()}${ext}`);
+        cb(null, `${fileName}${ext}`);
     },
 });
 
@@ -33,10 +33,11 @@ const upload = multer({ storage: storage });
 // Create a new part
 router.post('/', upload.single('part_img'), async (req, res) => {
     try {
-        const part_img_name = req.file.filename
+        let part_img_name = 'placeholder.png';
+        if (req.file) {
+            part_img_name = req.file.filename;
+        }
         const { part_name, part_desc, car_id } = req.body;
-        const part_img = req.file;
-
         const result = await pool.query(
             'INSERT INTO part (car_id, part_name, part_desc, part_img) VALUES ($1, $2, $3, $4) RETURNING *',
             [car_id, part_name, part_desc, part_img_name]
