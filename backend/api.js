@@ -20,13 +20,15 @@ app.use('/part', partRoutes);
 
 // Sedning Mail
 app.post('/send_email', async (req, res) => {
-  console.log(req.body);
-  const { to, subject, text } = req.body;
+  const to = req.body.email;
+  const subject = req.body.name
+  const text = req.body.message
+  console.log(to, subject, text)
 
   try {
     // CONFIG EMAIL
-    // const result = await sendMail(email, name, mesage);
-    // res.json({ message: i18n.__('Email sent successfully'), info: result });
+    const result = await sendMail(to, subject, text);
+    res.json({ message: i18n.__('Email sent successfully'), info: result });
     res.status(200).json({
       status: "success",
       resault: i18n.__('Email sent successfully')

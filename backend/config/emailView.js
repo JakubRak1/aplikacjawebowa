@@ -1,6 +1,6 @@
 module.exports = {
     host: 'smtp.freesmtpservers.com',
     service: 'gmail',
-    user: '',
-    pass: ''
+    user: 'mailAddress',
+    pass: 'APIPassword'
 };
