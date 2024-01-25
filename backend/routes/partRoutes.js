@@ -75,6 +75,22 @@ router.get('/search_car:id', async (req, res) => {
     }
 });
 
+// Get a specific part by name
+
+router.get('/search_part_name', async (req, res) => {
+    try {
+        const { name } = req.query;
+        console.log(name)
+        const result = await pool.query('SELECT * FROM part WHERE part_name ILIKE $1', [`%${name}%`]);
+        console.log(typeof (result.rows));
+        res.status(200).json({ status: 'succes', data: result.rows });
+    } catch (error) {
+        console.error('Error retrieving part:', error.message);
+        res.status(500).json({ status: 'error', error: i18n.__('Internal Server Error') });
+    }
+});
+
+
 // Get a specific part by ID
 router.get('/search:id', async (req, res) => {
     try {

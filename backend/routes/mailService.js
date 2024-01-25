@@ -1,12 +1,6 @@
 const nodemailer = require('nodemailer');
 const emailConfig = require('../config/email');
 
-// const transporter = nodemailer.createTransport({
-//     host: emailConfig.host,
-//     port: emailConfig.port,
-//     secure: emailConfig.secure,
-//     ignoreTLS: emailConfig.ignoreTLS
-// });
 
 const transporter = nodemailer.createTransport({
     service: emailConfig.service,
@@ -15,8 +9,6 @@ const transporter = nodemailer.createTransport({
         pass: emailConfig.pass,
     },
 });
-
-
 
 
 const sendMail = async (to, subject, text) => {
@@ -37,16 +29,3 @@ const sendMail = async (to, subject, text) => {
 };
 
 module.exports = { sendMail };
-
-
-
-
-// transporter.sendMail({
-//     from: '"Your Name" <youremail@gmail.com>', // sender address
-//     to: "receiverone@gmail.com, receivertwo@outlook.com", // list of receivers
-//     subject: "Medium @edigleyssonsilva ✔", // Subject line
-//     text: "There is a new article. It's about sending emails, check it out!", // plain text body
-//     html: "<b>There is a new article. It's about sending emails, check it out!</b>", // html body
-//   }).then(info => {
-//     console.log({info});
-//   }).catch(console.error);

@@ -68,7 +68,7 @@ app.post('/upload', upload.single('file'), (req, res) => {
 app.get('/getImage/:imageName', (req, res) => {
   const imageName = req.params.imageName;
   const imagePath = path.join(__dirname, 'files', imageName);
-  console.log(imagePath);
+  // console.log(imagePath);
   if (fileExists(imagePath)) {
     res.sendFile(imagePath);
   } else {
@@ -79,7 +79,7 @@ app.get('/getImage/:imageName', (req, res) => {
 app.get('/getImage/', (req, res) => {
   const imageName = 'placeholder.png';
   const imagePath = path.join(__dirname, 'files', imageName);
-  console.log(imagePath);
+  // console.log(imagePath);
   if (fileExists(imagePath)) {
     res.sendFile(imagePath);
   } else {
